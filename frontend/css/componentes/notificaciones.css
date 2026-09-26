@@ -1,0 +1,43 @@
+/* =====================================================================
+   Avisos flotantes (toasts).
+   ===================================================================== */
+
+.notificaciones {
+  position: fixed;
+  right: var(--espacio-5);
+  bottom: var(--espacio-5);
+  z-index: 60;
+  display: grid;
+  gap: var(--espacio-2);
+}
+
+.notificacion {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+  min-width: 260px;
+  padding: var(--espacio-3) var(--espacio-4);
+  border-radius: var(--radio);
+  background: var(--notificacion-fondo);
+  color: var(--color-sobre-primario);
+  font-size: var(--texto-sm);
+  box-shadow: var(--sombra-lg);
+  animation: aparecer 200ms ease;
+}
+
+.notificacion svg {
+  color: var(--notificacion-icono);
+}
+
+.notificacion.is-saliendo {
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+@media (max-width: 640px) {
+  .notificaciones {
+    right: var(--espacio-4);
+    left: var(--espacio-4);
+  }
+}

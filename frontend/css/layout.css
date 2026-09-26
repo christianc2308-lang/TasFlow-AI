@@ -1,0 +1,211 @@
+/* =====================================================================
+   Estructura de la página: barra lateral, encabezado y contenido.
+   ===================================================================== */
+
+/* ---------- Barra lateral ---------- */
+
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  width: var(--ancho-sidebar);
+  padding: var(--espacio-5) var(--espacio-4);
+  background: var(--sidebar-fondo);
+  color: var(--sidebar-texto);
+  overflow-y: auto;
+  transition: transform var(--transicion);
+}
+
+.sidebar__marca {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+  padding: 0 var(--espacio-2) var(--espacio-5);
+}
+
+.sidebar__logo {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radio);
+  background: var(--gradiente-logo);
+  color: var(--color-sobre-primario);
+}
+
+.sidebar__nombre {
+  font-size: var(--texto-lg);
+  font-weight: 600;
+  color: var(--sidebar-texto-activo);
+}
+
+.sidebar__nombre strong {
+  color: var(--sidebar-acento);
+}
+
+.sidebar__nav {
+  flex: 1;
+}
+
+.sidebar__seccion {
+  margin: var(--espacio-4) var(--espacio-3) var(--espacio-2);
+  font-size: var(--texto-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--sidebar-seccion);
+}
+
+.sidebar__enlace {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+  padding: 0.625rem var(--espacio-3);
+  margin-bottom: 2px;
+  border-radius: var(--radio);
+  font-size: var(--texto-sm);
+  font-weight: 500;
+  transition: background-color var(--transicion), color var(--transicion);
+}
+
+.sidebar__enlace:hover {
+  background: var(--sidebar-hover);
+  color: var(--sidebar-texto-activo);
+}
+
+.sidebar__enlace.is-activo {
+  background: var(--color-primario);
+  color: var(--color-sobre-primario);
+}
+
+.sidebar__etiqueta {
+  margin-left: auto;
+  padding: 1px 8px;
+  border-radius: var(--radio-total);
+  background: var(--sidebar-etiqueta-fondo);
+  color: var(--sidebar-etiqueta-texto);
+  font-size: 0.6875rem;
+  font-weight: 600;
+}
+
+.sidebar__pie {
+  margin-top: var(--espacio-4);
+  border-top: 1px solid var(--sidebar-borde);
+  border-radius: 0;
+  padding-top: var(--espacio-4);
+}
+
+.sidebar__pie:hover {
+  border-radius: var(--radio);
+}
+
+/* Capa oscura detrás del menú en móvil */
+.sidebar-fondo {
+  position: fixed;
+  inset: 0;
+  z-index: 35;
+  background: var(--capa-menu);
+}
+
+/* ---------- Zona principal ---------- */
+
+.app {
+  min-height: 100vh;
+  margin-left: var(--ancho-sidebar);
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-4);
+  height: var(--alto-topbar);
+  padding: 0 var(--espacio-6);
+  background: color-mix(in srgb, var(--color-superficie) 88%, transparent);
+  border-bottom: 1px solid var(--color-borde);
+  backdrop-filter: blur(8px);
+}
+
+/* Selector más específico que .boton-icono (componentes.css se carga después) */
+.topbar > .topbar__menu {
+  display: none;
+}
+
+.topbar__acciones {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-3);
+  margin-left: auto;
+}
+
+.contenido {
+  display: grid;
+  /* minmax(0, 1fr) permite que los hijos se encojan; sin esto la tabla
+     empuja el ancho y aparece scroll horizontal en móvil */
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--espacio-5);
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--espacio-6);
+}
+
+.encabezado-pagina {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--espacio-4);
+}
+
+.encabezado-pagina .texto-suave {
+  margin-top: var(--espacio-1);
+}
+
+/* ---------- Responsive ---------- */
+
+/* Tablet y móvil: la barra lateral se oculta y se abre con el botón de menú */
+@media (max-width: 1024px) {
+  .sidebar {
+    transform: translateX(-100%);
+    box-shadow: var(--sombra-lg);
+  }
+
+  .sidebar.is-abierta {
+    transform: translateX(0);
+  }
+
+  .app {
+    margin-left: 0;
+  }
+
+  .topbar {
+    padding: 0 var(--espacio-4);
+  }
+
+  .topbar > .topbar__menu {
+    display: inline-grid;
+  }
+
+  .contenido {
+    padding: var(--espacio-5) var(--espacio-4);
+  }
+}
+
+@media (max-width: 640px) {
+  h1 {
+    font-size: var(--texto-xl);
+  }
+
+  .encabezado-pagina {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .encabezado-pagina .boton {
+    justify-content: center;
+  }
+}

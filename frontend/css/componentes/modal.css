@@ -1,0 +1,111 @@
+/* =====================================================================
+   Modal (<dialog>) y campos de formulario.
+   ===================================================================== */
+
+.modal {
+  width: min(560px, calc(100% - 2rem));
+  padding: 0;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio-lg);
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  box-shadow: var(--sombra-lg);
+}
+
+.modal::backdrop {
+  background: var(--capa-modal);
+  backdrop-filter: blur(2px);
+}
+
+.modal[open] {
+  animation: aparecer 180ms ease;
+}
+
+.modal__contenido {
+  display: grid;
+  gap: var(--espacio-4);
+  padding: var(--espacio-5);
+}
+
+.modal__cabecera {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.modal__cabecera .boton-icono {
+  width: 34px;
+  height: 34px;
+  border: 0;
+}
+
+.modal__pie {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--espacio-3);
+  padding-top: var(--espacio-2);
+}
+
+/* ---------- Campos de formulario ---------- */
+
+.campo {
+  display: grid;
+  gap: 6px;
+}
+
+.campo label {
+  font-size: var(--texto-sm);
+  font-weight: 500;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+  width: 100%;
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  background: var(--color-superficie);
+  font-size: var(--texto-sm);
+}
+
+.campo textarea {
+  resize: vertical;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+  outline: 2px solid var(--color-primario);
+  outline-offset: -1px;
+}
+
+.campo input[aria-invalid="true"] {
+  border-color: var(--color-peligro);
+}
+
+.campo__error {
+  min-height: 0;
+  color: var(--color-peligro);
+  font-size: var(--texto-xs);
+}
+
+.campo__error:empty {
+  display: none;
+}
+
+.campo-grupo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--espacio-4);
+}
+
+.obligatorio {
+  color: var(--color-peligro);
+}
+
+@media (max-width: 640px) {
+  .campo-grupo {
+    grid-template-columns: 1fr;
+  }
+}

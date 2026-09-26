@@ -1,0 +1,138 @@
+/* =====================================================================
+   Estilos base: reset, tipografía y utilidades generales.
+   ===================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fuente);
+  font-size: var(--texto-base);
+  line-height: 1.5;
+  color: var(--color-texto);
+  background-color: var(--color-fondo);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1 {
+  font-size: var(--texto-2xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: var(--texto-lg);
+  font-weight: 600;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Iconos SVG en línea: heredan el color del texto */
+svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primario);
+  outline-offset: 2px;
+}
+
+/* ---------- Utilidades ---------- */
+
+.texto-suave {
+  color: var(--color-texto-suave);
+  font-size: var(--texto-sm);
+}
+
+/* Oculto a la vista pero accesible para lectores de pantalla */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.saltar-contenido {
+  position: absolute;
+  top: -100px;
+  left: var(--espacio-4);
+  z-index: 100;
+  padding: var(--espacio-2) var(--espacio-4);
+  background: var(--color-primario);
+  color: var(--color-sobre-primario);
+  border-radius: var(--radio-sm);
+}
+
+.saltar-contenido:focus {
+  top: var(--espacio-4);
+}
+
+/* ---------- Animaciones compartidas (modal, notificaciones) ---------- */
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

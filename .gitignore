@@ -1,0 +1,15 @@
+# Secretos: claves de Google, cifrado, base de datos
+.env
+.env.*
+!.env.example
+
+# Claude Code: informes del hook de calidad y ajustes personales
+.claude/reportes/
+.claude/settings.local.json
+
+# Dependencias
+node_modules/
+
+# Sistema
+.DS_Store
+Thumbs.db

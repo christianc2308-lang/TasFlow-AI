@@ -1,0 +1,128 @@
+/* =====================================================================
+   Variables de diseño (design tokens) de TaskFlow AI.
+   Cambiar un color o una medida aquí lo actualiza en toda la app.
+   ===================================================================== */
+
+:root {
+  /* Marca */
+  --color-primario: #4f46e5;
+  --color-primario-hover: #4338ca;
+  --color-primario-suave: #eef2ff;
+
+  /* Superficies y texto */
+  --color-fondo: #f5f7fb;
+  --color-superficie: #ffffff;
+  --color-superficie-alt: #f9fafb;
+  --color-borde: #e4e7ec;
+  --color-texto: #101828;
+  --color-texto-suave: #667085;
+
+  /* Barra lateral (siempre oscura) */
+  --sidebar-fondo: #111827;
+  --sidebar-texto: #9ca3af;
+  --sidebar-texto-activo: #ffffff;
+  --sidebar-hover: #1f2937;
+
+  /* Estados de las tareas */
+  --color-pendiente: #b54708;
+  --color-pendiente-suave: #fffaeb;
+  --color-progreso: #175cd3;
+  --color-progreso-suave: #eff8ff;
+  --color-completada: #067647;
+  --color-completada-suave: #ecfdf3;
+
+  /* Prioridades */
+  --color-urgente: #c01048;
+  --color-urgente-suave: #fff1f3;
+  --color-alta: #c4320a;
+  --color-alta-suave: #fff6ed;
+  --color-media: #6941c6;
+  --color-media-suave: #f9f5ff;
+  --color-baja: #475467;
+  --color-baja-suave: #f2f4f7;
+
+  --color-peligro: #d92d20;
+
+  /* Colores fijos (iguales en modo claro y oscuro) */
+  --color-sobre-primario: #ffffff;
+  --gradiente-logo: linear-gradient(135deg, #6366f1, #8b5cf6);
+  --gradiente-avatar: linear-gradient(135deg, #6366f1, #a855f7);
+  --sidebar-acento: #a5b4fc;
+  --sidebar-seccion: #6b7280;
+  --sidebar-borde: #1f2937;
+  --sidebar-etiqueta-fondo: #312e81;
+  --sidebar-etiqueta-texto: #c7d2fe;
+  --notificacion-fondo: #101828;
+  --notificacion-icono: #47cd89;
+  --capa-menu: rgb(0 0 0 / 0.45);
+  --capa-modal: rgb(16 24 40 / 0.55);
+
+  /* Tipografía */
+  --fuente: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --texto-xs: 0.75rem;
+  --texto-sm: 0.875rem;
+  --texto-base: 1rem;
+  --texto-lg: 1.125rem;
+  --texto-xl: 1.5rem;
+  --texto-2xl: 1.875rem;
+
+  /* Espaciado */
+  --espacio-1: 0.25rem;
+  --espacio-2: 0.5rem;
+  --espacio-3: 0.75rem;
+  --espacio-4: 1rem;
+  --espacio-5: 1.5rem;
+  --espacio-6: 2rem;
+
+  /* Bordes y sombras */
+  --radio-sm: 6px;
+  --radio: 10px;
+  --radio-lg: 14px;
+  --radio-total: 999px;
+  --sombra-sm: 0 1px 2px rgb(16 24 40 / 0.06);
+  --sombra: 0 1px 3px rgb(16 24 40 / 0.08), 0 1px 2px rgb(16 24 40 / 0.04);
+  --sombra-lg: 0 20px 40px -12px rgb(16 24 40 / 0.25);
+
+  /* Medidas del layout */
+  --ancho-sidebar: 260px;
+  --alto-topbar: 68px;
+
+  --transicion: 180ms ease;
+}
+
+/* Modo oscuro según la preferencia del sistema */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-primario-suave: #1e1b4b;
+
+    --color-fondo: #0b0f19;
+    --color-superficie: #121826;
+    --color-superficie-alt: #161d2d;
+    --color-borde: #253045;
+    --color-texto: #f2f4f7;
+    --color-texto-suave: #98a2b3;
+
+    --sidebar-fondo: #0a0e17;
+    --sidebar-hover: #161d2d;
+
+    --color-pendiente: #fdb022;
+    --color-pendiente-suave: #2e1f05;
+    --color-progreso: #84caff;
+    --color-progreso-suave: #0b2440;
+    --color-completada: #47cd89;
+    --color-completada-suave: #06291a;
+
+    --color-urgente: #fd6f8e;
+    --color-urgente-suave: #3a0a18;
+    --color-alta: #fd853a;
+    --color-alta-suave: #3a1705;
+    --color-media: #b692f6;
+    --color-media-suave: #22163f;
+    --color-baja: #cfd4dc;
+    --color-baja-suave: #1f2937;
+
+    --sombra-sm: none;
+    --sombra: 0 1px 3px rgb(0 0 0 / 0.4);
+    --sombra-lg: 0 20px 40px -12px rgb(0 0 0 / 0.6);
+  }
+}

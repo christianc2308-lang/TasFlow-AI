@@ -1,0 +1,53 @@
+{
+  "id": "tfNuevaTarea0001",
+  "name": "TaskFlow - Nueva tarea",
+  "active": false,
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "nueva-tarea",
+        "responseMode": "responseNode",
+        "options": {
+          "allowedOrigins": "*"
+        }
+      },
+      "id": "5d2f7c1e-2a4b-4c11-9e2a-0b1c2d3e4f01",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [0, 0],
+      "webhookId": "495bc3af-5bc7-4dff-8bdc-15512b737dbb"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { exito: true, mensaje: 'Tarea registrada correctamente', tarea: { titulo: $json.body.titulo, prioridad: $json.body.prioridad }, fecha: $now.toISO() } }}",
+        "options": {
+          "responseCode": 201
+        }
+      },
+      "id": "5d2f7c1e-2a4b-4c11-9e2a-0b1c2d3e4f02",
+      "name": "Respond to Webhook",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [300, 0]
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Respond to Webhook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  }
+}
